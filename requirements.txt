@@ -1,6 +1,6 @@
 SwissArmyTransformer>=0.4.9
-transformers>=4.36.2
-xformers>=0.0.22
+transformers==4.37.2
+xformers==0.0.23.post1
 torch>=2.1.0
 torchvision>=0.16.2
 spacy>=3.6.0
@@ -12,6 +12,7 @@ streamlit>=1.31.0
 timm>=0.9.12
 accelerate>=0.26.1
 pydantic>=2.6.0
+scipy
 
 # for openai demo
 openai>=1.11.1
