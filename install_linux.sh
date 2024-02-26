@@ -1,13 +1,5 @@
 #!/bin/bash
 
-export HF_HOME=/workspace/local_ssd/huggingface
-export NO_PROXY=localhost,.woa.com,.oa.com,.tencent.com
-export HTTP_PROXY=$ENV_VENUS_PROXY
-export HTTPS_PROXY=$ENV_VENUS_PROXY
-export no_proxy=$NO_PROXY
-export http_proxy=$ENV_VENUS_PROXY
-export https_proxy=$ENV_VENUS_PROXY
-
 pip install torch==2.2.0 torchvision==0.17.0 --extra-index-url https://download.pytorch.org/whl/cu121
 pip install bitsandbytes==0.41.1
 pip install deepspeed==0.11.2
