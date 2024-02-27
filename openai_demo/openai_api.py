@@ -31,6 +31,13 @@ else:
         else:
             QUANT_ENABLED = False
 
+if torch.cuda.is_available() and torch.cuda.get_device_capability()[0] >= 8:
+    torch_type = torch.bfloat16
+else:
+    torch_type = torch.float16
+
+print("========Use torch type as:{} with device:{}========\n\n".format(torch_type, DEVICE))
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
@@ -369,13 +376,6 @@ if __name__ == "__main__":
     tokenizer = LlamaTokenizer.from_pretrained(
         TOKENIZER_PATH,
         trust_remote_code=True)
-
-    if torch.cuda.is_available() and torch.cuda.get_device_capability()[0] >= 8:
-        torch_type = torch.bfloat16
-    else:
-        torch_type = torch.float16
-
-    print("========Use torch type as:{} with device:{}========\n\n".format(torch_type, DEVICE))
 
     if 'cuda' in DEVICE:
         if QUANT_ENABLED:
